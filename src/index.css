@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 20px;
+  padding: 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 30%;
+}
+
+.nav-links {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-decoration: none;
+  list-style: none;
+
+}
+
+.notes {
+  display: flex;
+  margin: 20px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.note {
+  width: 20%;
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
