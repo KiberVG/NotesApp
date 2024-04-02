@@ -44,7 +44,7 @@ function NavBar() {
 }
 
 // Note component, using props to individualize each note.
-function Notes({ title, content }) {
+function Notes({ title, content, darkMode }) {
   const [clicked, setClicked] = useState(false)
 
   function handleClick() {
@@ -52,7 +52,7 @@ function Notes({ title, content }) {
   }
 
   return (
-    <div className="note" onClick={handleClick}>
+    <div className={"note " + (darkMode && "dark")} onClick={handleClick}>
       <h1>{title}</h1>
       {clicked && <p>{content}</p>}
     </div>
@@ -60,6 +60,13 @@ function Notes({ title, content }) {
 }
 
 function App() {
+
+  const [dark, setDark] = useState(false)
+
+  function handleClick() {
+    setDark(!dark)
+  }
+
   return (
     <>
     {/* Showing the information only if the user is logged in */}
@@ -69,7 +76,7 @@ function App() {
           <div className="notes">
           {/* Mapping the information from the database to separate notes */}
             {todonotes.map((element) => (
-              <Notes title={element.title} content={element.content} />
+              <Notes title={element.title} darkMode={dark} content={element.content} />
             ))}
           </div>
           <div>
@@ -80,6 +87,11 @@ function App() {
                 <li>{element}</li>
               ))}
             </ul>
+          </div>
+          <div>
+            <button onClick={handleClick}>
+              Dark Mode
+            </button>
           </div>
         </>
       )}

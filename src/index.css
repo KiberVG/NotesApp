@@ -53,3 +53,8 @@ nav {
   border-color: plum;
   cursor:pointer;
 }
+
+.dark {
+  background-color: black;
+  color: white;
+}
