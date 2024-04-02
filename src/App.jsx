@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 // You may have this boolean value after using some authentication
 let loggedIn = true;
 
@@ -43,10 +45,16 @@ function NavBar() {
 
 // Note component, using props to individualize each note.
 function Notes({ title, content }) {
+  const [clicked, setClicked] = useState(false)
+
+  function handleClick() {
+    setClicked(!clicked)
+  }
+
   return (
-    <div className="note">
+    <div className="note" onClick={handleClick}>
       <h1>{title}</h1>
-      <p>{content}</p>
+      {clicked && <p>{content}</p>}
     </div>
   );
 }
